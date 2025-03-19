@@ -590,7 +590,7 @@ export const stationSummary = {
     "YMT" : 
     {
         fullName: 'Yau Ma Tei',
-        line:['TWL'],
+        line:['TWL','KTL'],
         name_tc: '油麻地',
         topPos:41.70,
         leftPos:51.62

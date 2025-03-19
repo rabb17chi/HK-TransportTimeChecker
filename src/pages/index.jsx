@@ -11,7 +11,7 @@ export default function Home() {
     <div>
       <button 
       onClick={()=>setModeSelect(!modeSelect)}
-      style={{fontSize:30}}
+      style={{fontSize:20}}
       >
         switch mode
       </button>
@@ -23,7 +23,7 @@ export default function Home() {
     </div>
     <hr></hr>
     <div> 
-      {modeSelect ? <MTR pic='./testMap.svg' /> : <KMB />}
+      {modeSelect ? <MTR /> : <KMB />}
     </div>
     </>
   );
