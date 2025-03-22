@@ -16,7 +16,7 @@ const TimeListRender = ({ListData}) => {
           false
           } 
           <br></br>
-          <span>下一班車時間：{calculateTimeDiff(item.time,)}</span>
+          <span>下班車時間：{calculateTimeDiff(item.time,)}</span>
         </p>
         )
       })
