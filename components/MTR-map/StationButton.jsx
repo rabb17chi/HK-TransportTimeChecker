@@ -8,32 +8,32 @@ import { stationSummary } from '../../usefulData/MTR_stationSummary'
 import { lineSummary } from '../../usefulData/MTR_lineSummary'
 
 const StationButton = ({ id, setAction }) => {
+  let stationInfoObject = [];
 
-  const fetchAction = (stationId, lines) => {
-    let stationInfoObject = [];
+  const fetchAction = async (stationId, lines) => {
+    stationInfoObject = [];
 
-    lines.forEach((item, index) => {
+    const promises = lines.map(item=>
       axios.get(`https://rt.data.gov.hk/v1/transport/mtr/getSchedule.php?line=${item}&sta=${stationId}`)
       .then(result => {
-        let data = result.data.data[`${item}-${stationId}`];
-        let DownList = data.DOWN || ['No Data'];
-        let UpList = data.UP || ['No Data'];
-        stationInfoObject.push({
-          Line: item,
-          Station: stationId,
-          Down: DownList,
-          Up: UpList
-        });
-        setTimeout(() => setAction(stationInfoObject), 2500);
+        return result.data.data
       })
-      .catch(err => {
-        if (axios.isCancel(err)) {
-          console.log('Request canceled by user.');
-        } else {
-          console.log('Something error: ', err);
-        }
+    )
+    const results = await Promise.all(promises)
+    
+    results.map(item=>{
+      let Line = Object.keys(item) // Line-Station
+      let DownList = item[Line].DOWN || ['No Data'];
+      let UpList = item[Line].UP || ['No Data'];
+      stationInfoObject.push({
+        Line: Line[0].slice(0,3),
+        Station: stationId,
+        Down: DownList,
+        Up: UpList
       })
-    });
+    })
+    
+    setAction(stationInfoObject)
   };
 
   const getLinesTitle = (id) => {
