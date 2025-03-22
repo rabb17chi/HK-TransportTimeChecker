@@ -1,6 +1,7 @@
 .station-btn {
   background-clip: text !important;
   -webkit-text-fill-color: transparent;
+  opacity: 0;
 }
 .station-btn:hover {
   opacity: 0.9;
