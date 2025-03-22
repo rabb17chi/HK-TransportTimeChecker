@@ -1,4 +1,4 @@
-import 'tailwindcss'
+import '../src/app/globals.css'
 
 import React, { useEffect, useState } from 'react'
 
@@ -16,9 +16,9 @@ useEffect(()=>{
 },[])
   return (
     <>
-        <div id="mtr-map">
-            <div style={{minWidth:'800px',maxWidth:'1200px',position:'relative'}}>
-                <img src='./MTR_Map.svg' width={'100%'} height={'100%'} alt='MTR full map.' />
+        <div id="mtr-map" className='w-[full] max-w-[800px] overflow-scroll'>
+            <div className='w-[800px] relative'>
+                <img src='./MTR_Map.svg' className='max-w-[800px] w-auto h-full' alt='MTR full map.' />
                 {
                 nameList.map((ListItem,index)=>
                     <StationButton 
