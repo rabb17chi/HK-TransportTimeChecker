@@ -6,7 +6,6 @@ const FilteredArrayDisplay = ({routeInput, routeArray, stopArray}) => {
     
     useEffect(()=>{
         setFilteredArray(routeArray.filter(item=>item.route.includes(routeInput)))
-        console.log(filteredArray[0])
     },[routeInput])
   return (
     <div>

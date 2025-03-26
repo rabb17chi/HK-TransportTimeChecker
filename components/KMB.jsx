@@ -147,35 +147,16 @@
 
 // export default HomePage
 
-import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import FilteredArrayDisplay from './KMB-checker/FilteredArrayDisplay'
 
-const KMB = () => {
+const KMB = ({routeDataArray,stopDataArray}) => {
   const [routeInput,setRouteInput] = useState('')
-
-  const [routeDataArray, setRouteDataArray] = useState([])
-  const [stopDataArray, setStopDataArray] = useState([])
 
   useEffect(()=>{
     console.log('KMB-page loaded.')
-    
-    axios.get('https://data.etabus.gov.hk/v1/transport/kmb/route/')
-    .then(data=>{
-        data.status == 200 ? 
-        setRouteDataArray(data.data.data)
-        : 
-        console.log('Failed to fetch [route]-data')
-    })
-    .then(
-      axios.get('https://data.etabus.gov.hk/v1/transport/kmb/stop')
-      .then(data=>{
-        data.status == 200 ? 
-        setStopDataArray(data.data.data)
-        : 
-        console.log('Failed to fetch [stop]-data')
-      })
-    )
+    console.log('routeDataArray',routeDataArray)
+    console.log('stopDataArray',stopDataArray)
     },[])
 
   return (
@@ -191,14 +172,14 @@ const KMB = () => {
       />
 
         {/* 根據RouteInput > Map and filter Route-Array > return route-button */}
-        {routeInput.length > 0 ?
-        <FilteredArrayDisplay 
-        routeInput={routeInput.replace(/\s+/g,'').toUpperCase()} 
-        routeArray={routeDataArray} 
-        stopArray={stopDataArray}
-        /> 
-        : 
-        null}
+          {routeInput.length > 0 ?
+          <FilteredArrayDisplay 
+          routeInput={routeInput.replace(/\s+/g,'').toUpperCase()} 
+          routeArray={routeDataArray} 
+          stopArray={stopDataArray}
+          /> 
+          : 
+          null}
 
       <div>
         {/* 根據route-button > Map and return All stations-button */}
