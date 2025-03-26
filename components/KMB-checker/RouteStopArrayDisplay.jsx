@@ -12,6 +12,7 @@ const RouteStopArrayDisplay = ({routeStopArray,fullStopArray}) => {
     }
 
     const fetchStopBusTime = (stopId,route) => {
+        setBusETA([])
         setSelectedStop(stopId)
         axios.get(`https://data.etabus.gov.hk/v1/transport/kmb/eta/${stopId}/${route}/1`)
         .then(data=>setBusETA(data.data.data))
@@ -23,19 +24,25 @@ const RouteStopArrayDisplay = ({routeStopArray,fullStopArray}) => {
             routeStopArray.map((item,index)=>{
                 return <div key={index} className='m-2 border-2'>
 
-                            <button onClick={()=>fetchStopBusTime(item.stop,item.route)}>
+                            <button 
+                            onClick={()=>fetchStopBusTime(item.stop,item.route)}
+                            className='bg-yellow-200 w-full min-h-10'
+                            >
                                 {getChineseName(item.stop)}
                             </button>
 
                             { item.stop == selectedStop ?
-                                <>
+                                <div>
                                 {
                                 busETA.map((item,index)=>{
-                                    return <div key={index} className='bg-green-200'>
-                                        <h3>{KMBTimeDiff(item.eta.slice(14,-9),index)}</h3>
-                                    </div>
+                                    return <h3 
+                                            key={index} 
+                                            className='bg-green-200'>
+                                                {KMBTimeDiff(item.eta.slice(14,-9),index)}
+                                            </h3>
+                                    
                                 })}
-                                </>
+                                </div>
                                 :
                                 null
                             }
