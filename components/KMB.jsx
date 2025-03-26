@@ -149,19 +149,19 @@
 
 import React, { useEffect, useState } from 'react'
 import FilteredArrayDisplay from './KMB-checker/FilteredArrayDisplay'
+import RouteStopArrayDisplay from './KMB-checker/RouteStopArrayDisplay'
 
 const KMB = ({routeDataArray,stopDataArray}) => {
   const [routeInput,setRouteInput] = useState('')
 
+  const [routeStopArray, setRouteStopArray] = useState([])
+
   useEffect(()=>{
     console.log('KMB-page loaded.')
-    console.log('routeDataArray',routeDataArray)
-    console.log('stopDataArray',stopDataArray)
     },[])
 
   return (
     <div>
-      <h1>KMB</h1>
       <input 
       type='text'
       name='kmb-route-input'
@@ -176,13 +176,21 @@ const KMB = ({routeDataArray,stopDataArray}) => {
           <FilteredArrayDisplay 
           routeInput={routeInput.replace(/\s+/g,'').toUpperCase()} 
           routeArray={routeDataArray} 
-          stopArray={stopDataArray}
+          // stopArray={stopDataArray}
+          setRouteStopArray={setRouteStopArray}
           /> 
           : 
-          null}
+          null
+          }
 
       <div>
         {/* 根據route-button > Map and return All stations-button */}
+
+        {routeStopArray.length > 0 ?
+         <RouteStopArrayDisplay routeStopArray={routeStopArray} fullStopArray={stopDataArray} /> 
+         : 
+         null 
+        }
         {/* by stations-button > call 3-incoming-bus api */}
       </div>
 

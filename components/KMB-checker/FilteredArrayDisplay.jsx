@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import FilteredRoute from './FilteredRoute'
 
-const FilteredArrayDisplay = ({routeInput, routeArray, stopArray}) => {
+const FilteredArrayDisplay = ({routeInput, routeArray, setRouteStopArray}) => {
 
     const [filteredArray,setFilteredArray] = useState([])
     
@@ -8,13 +9,17 @@ const FilteredArrayDisplay = ({routeInput, routeArray, stopArray}) => {
         setFilteredArray(routeArray.filter(item=>item.route.includes(routeInput)))
     },[routeInput])
   return (
-    <div>
+    <div className='overflow-y-scroll h-fit max-h-60 min-w-[300px]'>
         {
            filteredArray.map((item,index)=>{
-            while (index < 11) {
-                return <p key={index}>{item.route}</p>
+            while (index < 10) {
+                return <FilteredRoute 
+                item={item} 
+                key={index} 
+                setRouteStopArray={setRouteStopArray}
+
+                />
             }
-            return
            })
         }
     </div>

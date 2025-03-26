@@ -54,11 +54,15 @@ export default function Home() {
         </h2>
       </div>
       <hr></hr>
-      <>{routeDataArray.length > 0 && stopDataArray.length > 0 ? 'yes' : '?'}</>
       <div> 
-        {modeSelect ? <MTR /> 
+        {modeSelect ? 
+        <MTR /> 
         : 
-        routeDataArray.length > 0 && stopDataArray.length > 0 && <KMB routeDataArray={routeDataArray} stopDataArray={stopDataArray} />}
+        routeDataArray.length > 0 && stopDataArray.length > 0 ? 
+        <KMB routeDataArray={routeDataArray} stopDataArray={stopDataArray} /> 
+        :
+        <p>KMB資料尚未能完整讀取,請重新轉換mode以再次進行.</p>
+        }
       </div>
     </div>
   );
