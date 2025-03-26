@@ -5,7 +5,6 @@ const FilteredRoute = ({item, setRouteStopArray}) => {
 
     const FetchRouteAllStop = (route,bound) => {
         bound = bound == 'I' ? 'inbound' : 'outbound'
-        console.log(route,bound)
         axios.get(`https://data.etabus.gov.hk/v1/transport/kmb/route-stop/${route}/${bound}/1`)
         .then(data=>
             setRouteStopArray(data.data.data)

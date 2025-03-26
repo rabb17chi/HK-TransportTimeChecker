@@ -1,10 +1,8 @@
 export const KMBTimeDiff = (busTime,busIndex) => {
-    console.log(busIndex)
     if (busTime) {
         busTime = parseInt(busTime)
         let date = new Date()
         let currentMin = date.getMinutes()
-        console.log('data',currentMin,'KMB',busTime)
         if (busTime === currentMin) {
             return `巴士接近埋站/已埋站`
         }
