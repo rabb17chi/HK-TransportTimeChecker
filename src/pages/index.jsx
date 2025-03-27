@@ -40,15 +40,16 @@ export default function Home() {
 
   return (
     <div>
-      <div>
+      <div className="p-2 flex justify-between items-center">
         <button 
         onClick={()=>ChangeModeFunction()}
-        style={{fontSize:18}}
+        className="border-2 text-2xl p-2 bg-blue-100 cursor-pointer"
+        title="點擊切換模式"
         >
-          switch mode
+          切換模式
         </button>
         <h2
-        style={{display:'inline', marginLeft:10}}
+        className="ml-3 text-xl"
         >
           Mode is {modeSelect ? 'MTR' : 'KMB'}.
         </h2>
