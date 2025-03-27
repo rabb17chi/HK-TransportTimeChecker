@@ -12,44 +12,46 @@ const RouteStopArrayDisplay = ({routeStopArray,fullStopArray}) => {
         return fullStopArray.filter(item=>item.stop==stopId)[0].name_tc
     }
 
-    const fetchStopBusTime = (stopId,route,seq) => {
+    const fetchStopBusTime = (stopId,route,seqId) => {
         setBusETA([])
         setSelectedStop(stopId)
-        setSeq(seq)
+        setSeq(seqId)
+        console.log(seqId)
         axios.get(`https://data.etabus.gov.hk/v1/transport/kmb/eta/${stopId}/${route}/1`)
         .then(data=>setBusETA(data.data.data))
         .catch(err=>console.log(err))
     }
   return (
-    <div className='pt-1'>
+    <div className='pt-1 bg-gray-300 max-h-[640px] overflow-auto'>
         {
             routeStopArray.map((item,index)=>{
                 return <div key={index} className='m-2 border-2'>
 
                             <button 
-                            onClick={()=>fetchStopBusTime(item.stop,item.route,item.seq)}
-                            className='bg-yellow-200 w-full min-h-10'
+                            onClick={()=>fetchStopBusTime(item.stop, item.route, item.seq)}
+                            className='w-full min-h-10 bg-yellow-100'
+                            id={item.seq}
                             >
                                 {getChineseName(item.stop)}
                             </button>
 
-                            { item.stop == selectedStop ?
-                                <div>
+                            { item.stop == selectedStop && seq == item.seq ?
+                                <ul>
                                 { 
-                                busETA.map((item,index)=>{
-                                    if (item.seq == seq) {
-                                        if (item.eta !== null) {
-                                            return <h3 
+                                busETA.map((ETAitem,index)=>{
+                                    if (ETAitem.seq == seq) {
+                                        if (ETAitem.eta !== null) {
+                                            return <li 
                                             key={index} 
-                                            className='bg-green-200'>
-                                                {KMBTimeDiff(item.eta.slice(14,-9),index)}
-                                            </h3> 
+                                            className='bg-green-200 list-none px-4'>
+                                                {KMBTimeDiff(ETAitem.eta.slice(14,-9),index)}
+                                            </li> 
                                         }  
-                                            return <h3 key={index}>無資料</h3>
+                                            return <li key={index}><span className='font-bold'>無資料</span></li>
                                     }
                                 })
                                 }
-                                </div>
+                                </ul>
                                 :
                                 null
                             }

@@ -4,12 +4,11 @@ import React from 'react'
 const FilteredRoute = ({item, setRouteStopArray, setSelectedRoute, selectedRoute}) => {
 
     const FetchRouteAllStop = (route,bound) => {
-        setSelectedRoute(route)
+        setRouteStopArray([])
+        setSelectedRoute({route:route,bound:bound})
         bound = bound == 'I' ? 'inbound' : 'outbound'
         axios.get(`https://data.etabus.gov.hk/v1/transport/kmb/route-stop/${route}/${bound}/1`)
-        .then(data=>
-            setRouteStopArray(data.data.data)
-        )
+        .then(data=> setRouteStopArray(data.data.data))
         .catch(err=>console.log(err))
     }
 
@@ -18,11 +17,11 @@ const FilteredRoute = ({item, setRouteStopArray, setSelectedRoute, selectedRoute
         {
             item.service_type == '1' 
             ?
-                 <div className='bg-gray-300 p-2 min-w-full'>
+                 <div className='bg-gray-300 p-1 min-w-full'>
                     <button 
                     onClick={()=>FetchRouteAllStop(item.route,item.bound)} 
                     className={`
-                        ${selectedRoute == item.route ? ' bg-pink-300' : 'bg-green-200'} 
+                        ${selectedRoute.route == item.route && selectedRoute.bound == item.bound ? ' bg-pink-300' : 'bg-green-200'} 
                         w-full min-h-10 border-2 cursor-pointer
                         `}
                     >

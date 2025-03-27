@@ -162,12 +162,11 @@ const KMB = ({routeDataArray,stopDataArray}) => {
 
   return (
     <div className='p-3'>
-      { routeInput ? null : <p>請輸入路線...</p>}
       <input 
       type='text'
       name='kmb-route-input'
       value={routeInput}
-      placeholder='KMB-route here...' 
+      placeholder='請輸入路線...' 
       onChange={(e)=>setRouteInput(e.target.value)}
       maxLength={4}
       className='w-full text-center text-2xl bg-pink-200 mb-4 py-2 h-10'
