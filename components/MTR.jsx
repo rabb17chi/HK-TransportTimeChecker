@@ -21,7 +21,7 @@ useEffect(()=>{
             <div className='w-[800px] relative'>
                 <Image
                 width={800}
-                height={'auto'}
+                height={800}
                 src='./MTR_Map.svg'
                 className='max-w-[800px] w-auto h-full' 
                 alt='MTR full map.' 
