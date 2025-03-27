@@ -2,6 +2,7 @@ import { useState } from "react";
 import MTR from "../../components/MTR";
 import KMB from "../../components/KMB";
 import axios from "axios";
+import Footer from "../../components/page-footer/Footer";
 
 export default function Home() {
 
@@ -40,6 +41,7 @@ export default function Home() {
 
   return (
     <div>
+
       <div className="p-2 flex justify-between items-center">
         <button 
         onClick={()=>ChangeModeFunction()}
@@ -54,7 +56,9 @@ export default function Home() {
           Mode is {modeSelect ? 'MTR' : 'KMB'}.
         </h2>
       </div>
+
       <hr></hr>
+
       <div> 
         {modeSelect ? 
         <MTR /> 
@@ -65,6 +69,8 @@ export default function Home() {
         <p>KMB資料尚未能完整讀取,請重新轉換mode以再次進行.</p>
         }
       </div>
+
+      <Footer />
     </div>
   );
 }

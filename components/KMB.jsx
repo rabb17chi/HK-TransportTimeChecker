@@ -162,6 +162,7 @@ const KMB = ({routeDataArray,stopDataArray}) => {
 
   return (
     <div className='p-3'>
+      { routeInput ? null : <p>請輸入路線...</p>}
       <input 
       type='text'
       name='kmb-route-input'
