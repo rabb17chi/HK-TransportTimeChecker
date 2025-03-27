@@ -16,6 +16,7 @@ webLink : https://hk-transport-time-checker.vercel.app/
 
 ----
    2.1 港鐵-MTR
+   
      展示方式以港鐵路線圖，使用者可按下地圖上相應的站名以查詢該站與所屬路線的地鐵列車時間訊息。
      
      2.1.1 地圖
@@ -33,6 +34,7 @@ webLink : https://hk-transport-time-checker.vercel.app/
 
 ---
    2.2 九巴-KMB
+   
      展示方式以文字輸入搜尋，使用者可根據自己所知的路線搜尋相應的車輛路線。
 	  
      2.2.1 路線過濾
