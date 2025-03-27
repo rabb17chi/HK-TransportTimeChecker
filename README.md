@@ -45,8 +45,11 @@ webLink : https://hk-transport-time-checker.vercel.app/
 
 ---
 一些補充/題外話/是但抱怨:
+
 九巴數據集幾時可以稍微改進下= = 有啲路線已經基本call唔郁eta點解唔直接從原本嘅route-list拎走
+
 同埋個eta更新頻率可唔可以搞快半分鐘30s一次, update/min真係好慢, 人地港鐵可以做到10秒左右真係差距...
+
 同埋seq方面, 頭尾站可唔可以backend個度直接幫手處理, seq-1就出seq-1, seq-last就出seq-last, 唔好call stop-id+route+bound就跳哂兩個站先得架寶寶
     
        
