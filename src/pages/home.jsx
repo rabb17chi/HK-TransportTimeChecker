@@ -1,3 +1,5 @@
+'use client'
+
 import { useState } from "react";
 import MTR from "../../components/MTR";
 import KMB from "../../components/KMB";
