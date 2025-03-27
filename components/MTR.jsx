@@ -23,7 +23,7 @@ useEffect(()=>{
                 width={800}
                 height={800}
                 src='./MTR_Map.svg'
-                className='max-w-[800px] w-auto h-full' 
+                className='max-w-[800px] w-auto' 
                 alt='MTR full map.' 
                 onContextMenu={(e)=>{e.preventDefault(); return false}}
                 onPointerDown={(e)=>{e.preventDefault(); return false}}
