@@ -21,7 +21,7 @@ const RouteStopArrayDisplay = ({routeStopArray,fullStopArray}) => {
         .catch(err=>console.log(err))
     }
   return (
-    <div>
+    <div className='pt-1'>
         {
             routeStopArray.map((item,index)=>{
                 return <div key={index} className='m-2 border-2'>

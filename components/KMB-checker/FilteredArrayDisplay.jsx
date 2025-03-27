@@ -4,6 +4,7 @@ import FilteredRoute from './FilteredRoute'
 const FilteredArrayDisplay = ({routeInput, routeArray, setRouteStopArray}) => {
 
     const [filteredArray,setFilteredArray] = useState([])
+    const [selectedRoute,setSelectedRoute] = useState('')
     
     useEffect(()=>{
         setFilteredArray(routeArray.filter(item=>item.route.includes(routeInput)))
@@ -17,7 +18,8 @@ const FilteredArrayDisplay = ({routeInput, routeArray, setRouteStopArray}) => {
                 item={item} 
                 key={index} 
                 setRouteStopArray={setRouteStopArray}
-
+                setSelectedRoute={setSelectedRoute}
+                selectedRoute={selectedRoute}
                 />
             }
            })
