@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react'
 import StationButton from './MTR-map/StationButton'
 import { stationNameList } from '../usefulData/MTR_stationNameList'
 import ListDisplayBlock from './MTR-map/ListDisplayBlock'
+import Image from 'next/image'
 
 const MTR = () => {
     const nameList = stationNameList
@@ -18,7 +19,9 @@ useEffect(()=>{
     <>
         <div id="mtr-map" className='w-[full] max-w-[800px] overflow-scroll'>
             <div className='w-[800px] relative'>
-                <img
+                <Image
+                width={800}
+                height={'auto'}
                 src='./MTR_Map.svg'
                 className='max-w-[800px] w-auto h-full' 
                 alt='MTR full map.' 
