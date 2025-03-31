@@ -12,18 +12,15 @@ const MTR = () => {
 
     const [stationInfoObject,setStationInfoObject] = useState([])
 
-useEffect(()=>{
-    console.log('MTR Page Loaded.')
-},[])
   return (
     <>
-        <div id="mtr-map" className='w-[full] max-w-[800px] overflow-scroll'>
+        <div id="mtr-map" className='w-[full] max-w-[800px] overflow-scroll border-4 border-black'>
             <div className='w-[800px] relative'>
                 <Image
                 width={800}
                 height={800}
                 src='./MTR_Map.svg'
-                className='max-w-[800px] w-auto' 
+                className='max-w-[800px]' 
                 alt='MTR full map.' 
                 onContextMenu={(e)=>{e.preventDefault(); return false}}
                 onPointerDown={(e)=>{e.preventDefault(); return false}}

@@ -17,7 +17,7 @@ const FilteredRoute = ({item, setRouteStopArray, setSelectedRoute, selectedRoute
         {
             item.service_type == '1' 
             ?
-                 <div className='bg-gray-300 p-1 min-w-full'>
+                 <div className='bg-gray-300 px-2 py-1 min-w-full'>
                     <button 
                     onClick={()=>FetchRouteAllStop(item.route,item.bound)} 
                     className={`
@@ -25,7 +25,7 @@ const FilteredRoute = ({item, setRouteStopArray, setSelectedRoute, selectedRoute
                         w-full min-h-10 border-2 cursor-pointer
                         `}
                     >
-                        <h1>{item.route} 前往 - {item.dest_tc}</h1>
+                        <h3>{item.route} 前往 - {item.dest_tc}</h3>
                     </button>
                 </div>
             :

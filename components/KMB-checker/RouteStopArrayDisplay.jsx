@@ -22,10 +22,10 @@ const RouteStopArrayDisplay = ({routeStopArray,fullStopArray}) => {
         .catch(err=>console.log(err))
     }
   return (
-    <div className='pt-1 bg-gray-300 max-h-[640px] overflow-auto'>
+    <div className='pt-1 bg-gray-500 max-h-[640px] overflow-auto border-t-10'>
         {
             routeStopArray.map((item,index)=>{
-                return <div key={index} className='m-2 border-2'>
+                return <div key={index} className={`${index==0 ? 'mx-2' : 'm-2'} border-2`}>
 
                             <button 
                             onClick={()=>fetchStopBusTime(item.stop, item.route, item.seq)}

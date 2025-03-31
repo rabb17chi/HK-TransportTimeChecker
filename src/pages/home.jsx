@@ -44,24 +44,20 @@ export default function Home() {
   return (
     <div>
 
-      <div className="p-2 flex justify-between items-center">
-        <button 
+      <div className="p-2 flex justify-between items-center sticky top-0 z-10 bg-amber-200">
+        <button className="border-2 text-2xl p-2 bg-blue-100 cursor-pointer"
         onClick={()=>ChangeModeFunction()}
-        className="border-2 text-2xl p-2 bg-blue-100 cursor-pointer"
         title="點擊切換模式"
         >
           切換模式
         </button>
-        <h2
-        className="ml-3 text-xl"
-        >
+        <h2 className="ml-3 text-xl">
           Mode is {modeSelect ? 'MTR' : 'KMB'}.
         </h2>
       </div>
 
       <hr></hr>
 
-      <div> 
         {modeSelect ? 
         <MTR /> 
         : 
@@ -70,7 +66,6 @@ export default function Home() {
         :
         <p>KMB資料尚未能完整讀取,請重新轉換mode以再次進行.</p>
         }
-      </div>
 
       <Footer />
     </div>

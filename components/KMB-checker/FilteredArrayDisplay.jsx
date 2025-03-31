@@ -10,7 +10,7 @@ const FilteredArrayDisplay = ({routeInput, routeArray, setRouteStopArray}) => {
         setFilteredArray(routeArray.filter(item=>item.route.includes(routeInput)))
     },[routeInput])
   return (
-    <div className='overflow-y-scroll h-fit max-h-60 min-w-[300px]'>
+    <div className='overflow-y-auto h-fit max-h-60 min-w-[300px]'>
         {
            filteredArray.map((item,index)=>{
             while (index < 10) {
