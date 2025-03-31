@@ -13,7 +13,10 @@ const Footer = () => {
         </Link>
 
         <h2>
-            香港公共運輸時間查詢工具 | 2025
+            <Link 
+            href='https://github.com/rabb17chi/HK-TransportTimeChecker'
+            className='hover:text-orange-500'
+            >香港公共運輸時間查詢工具</Link> | 2025
         </h2>
         <p></p>
     </footer>
