@@ -16,7 +16,6 @@ const RouteStopArrayDisplay = ({routeStopArray,fullStopArray}) => {
         setBusETA([])
         setSelectedStop(stopId)
         setSeq(seqId)
-        console.log(seqId)
         axios.get(`https://data.etabus.gov.hk/v1/transport/kmb/eta/${stopId}/${route}/1`)
         .then(data=>setBusETA(data.data.data))
         .catch(err=>console.log(err))
@@ -47,7 +46,7 @@ const RouteStopArrayDisplay = ({routeStopArray,fullStopArray}) => {
                                                 {KMBTimeDiff(ETAitem.eta.slice(14,-9),index)}
                                             </li> 
                                         }  
-                                            return <li key={index}><span className='font-bold'>無資料</span></li>
+                                            return <li key={index}><span className='font-bold bg-white'>無資料</span></li>
                                     }
                                 })
                                 }
