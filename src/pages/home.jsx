@@ -5,6 +5,8 @@ import MTR from "../../components/MTR";
 import KMB from "../../components/KMB";
 import axios from "axios";
 import Footer from "../../components/page-footer/Footer";
+import { KMB_StopRawData } from "../../usefulData/KMB_StopRawData";
+import { KMB_RouteRawData } from "../../usefulData/KMB_RouteRawData";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(false)
@@ -15,23 +17,25 @@ export default function Home() {
   const [stopDataArray, setStopDataArray] = useState([])
 
   const getKMBdata = async () => {
-    try {
-      if (routeDataArray.length === 0) {
-      const routeResponse = await axios.get('https://data.etabus.gov.hk/v1/transport/kmb/route')
-      if (routeResponse.status === 200) {
-        setRouteDataArray(routeResponse.data.data)
-      }
-     }
-
-      if (stopDataArray.length === 0 ){
-        const stopResponse = await axios.get('https://data.etabus.gov.hk/v1/transport/kmb/stop')
-        if (stopResponse.status === 200) {
-          setStopDataArray(stopResponse.data.data)
-        }
-      }
-} catch (err) {
-      console.log("Error with fetching KMB Data:",err)
-  }
+    setRouteDataArray(KMB_RouteRawData.data)
+    setStopDataArray(KMB_StopRawData.data)
+//     try {
+//       if (routeDataArray.length === 0) {
+//       const routeResponse = await axios.get('https://data.etabus.gov.hk/v1/transport/kmb/route')
+//       if (routeResponse.status === 200) {
+//         setRouteDataArray(routeResponse.data.data)
+//       }
+//      }
+     
+//       if (stopDataArray.length === 0 ){
+//         const stopResponse = await axios.get('https://data.etabus.gov.hk/v1/transport/kmb/stop')
+//         if (stopResponse.status === 200) {
+//           setStopDataArray(stopResponse.data.data)
+//         }
+//       }
+// } catch (err) {
+//       console.log("Error with fetching KMB Data:",err)
+//   }
 }
 
 
