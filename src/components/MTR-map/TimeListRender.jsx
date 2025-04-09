@@ -1,8 +1,8 @@
 import React from 'react'
-import { stationSummary } from '../../usefulData/MTR_stationSummary'
-import { calculateTimeDiff } from '../../scripts/MTR-page/calculateTimeDiff'
-import checkDest from '../../scripts/MTR-page/checkDest'
-import { lineSummary } from '../../usefulData/MTR_lineSummary'
+import { stationSummary } from '../../../usefulData/MTR_stationSummary'
+import { calculateTimeDiff } from '../../../scripts/MTR-page/calculateTimeDiff'
+import checkDest from '../../../scripts/MTR-page/checkDest'
+import { lineSummary } from '../../../usefulData/MTR_lineSummary'
 
 const TimeListRender = ({Line, ListData, dataRemark}) => {
 

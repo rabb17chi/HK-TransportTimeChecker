@@ -1,9 +1,9 @@
-import '../src/app/globals.css'
+// import '../src/app/globals.css'
 
 import React, { useMemo, useRef, useState } from 'react'
 
 import StationButton from './MTR-map/StationButton'
-import { stationNameList } from '../usefulData/MTR_stationNameList'
+import { stationNameList } from '../../usefulData/MTR_stationNameList'
 import ListDisplayBlock from './MTR-map/ListDisplayBlock'
 
 const MTR = () => {

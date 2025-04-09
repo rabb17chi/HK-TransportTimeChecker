@@ -1,11 +1,10 @@
 import React from 'react'
 import axios from 'axios'
-// https://rt.data.gov.hk/v1/transport/mtr/getSchedule.php?line=${lines}&sta=${stationId}
 
-import '../../styles/stationBtn.css'
-import '../../src/app/globals.css'
-import { stationSummary } from '../../usefulData/MTR_stationSummary'
-import { lineSummary } from '../../usefulData/MTR_lineSummary'
+import '../../../styles/stationBtn.css'
+import '../../../src/app/globals.css'
+import { stationSummary } from '../../../usefulData/MTR_stationSummary'
+import { lineSummary } from '../../../usefulData/MTR_lineSummary'
 
 const StationButton = ({ id, setAction }) => {
   let stationInfoObject = [];

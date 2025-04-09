@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useState } from 'react'
-import { KMBTimeDiff } from '../../scripts/KMB-page/kmbTimeDiff'
+import { KMBTimeDiff } from '../../../scripts/KMB-page/kmbTimeDiff'
 
 const RouteStopArrayDisplay = ({routeStopArray,fullStopArray}) => {
 

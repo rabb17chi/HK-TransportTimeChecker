@@ -1,8 +1,8 @@
 'use client'
 
 import { useMemo, useState } from "react";
-import MTR from "../../components/MTR";
-import KMB from "../../components/KMB";
+import MTR from "../components/MTR";
+import KMB from "../components/KMB";
 import { KMB_StopRawData } from "../../usefulData/KMB_StopRawData";
 import { KMB_RouteRawData } from "../../usefulData/KMB_RouteRawData";
 

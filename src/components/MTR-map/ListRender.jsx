@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { lineSummary } from '../../usefulData/MTR_lineSummary'
+import { lineSummary } from '../../../usefulData/MTR_lineSummary'
 import TimeListRender from './TimeListRender'
 
 const ListRender = ({ListData}) => {

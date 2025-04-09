@@ -1,6 +1,6 @@
 import React from 'react'
 import ListRender from './ListRender'
-import { stationSummary } from '../../usefulData/MTR_stationSummary'
+import { stationSummary } from '../../../usefulData/MTR_stationSummary'
 
 const ListDisplayBlock = ({data}) => {
   return (
