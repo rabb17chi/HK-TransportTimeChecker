@@ -1,17 +1,16 @@
 'use client'
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import MTR from "../../components/MTR";
 import KMB from "../../components/KMB";
-import axios from "axios";
-import Footer from "../../components/page-footer/Footer";
 import { KMB_StopRawData } from "../../usefulData/KMB_StopRawData";
 import { KMB_RouteRawData } from "../../usefulData/KMB_RouteRawData";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(false)
-
   const [modeSelect, setModeSelect] = useState(true)
+
+  const memoizedMTR = useMemo(()=> <MTR />)
 
   const [routeDataArray, setRouteDataArray] = useState([])
   const [stopDataArray, setStopDataArray] = useState([])
@@ -59,7 +58,7 @@ export default function Home() {
       <div className="p-2 flex justify-between items-center sticky top-0 z-10 bg-amber-200">
         <button className="border-2 text-2xl p-2 bg-blue-100 cursor-pointer hover:bg-blue-700 hover:text-white hover:border-black"
         onClick={()=>ChangeModeFunction()}
-        title="點擊切換模式"
+        title="切換模式"
         disabled={isLoading}
         >
           {isLoading ? '切換中...' : "切換模式"}
@@ -69,18 +68,12 @@ export default function Home() {
         </h2>
       </div>
 
-      <hr></hr>
-
         {modeSelect ? 
-        <MTR /> 
-        :
-        routeDataArray.length > 0 && stopDataArray.length > 0 ? 
-        <KMB routeDataArray={routeDataArray} stopDataArray={stopDataArray} /> 
-        :
-        <p>KMB資料尚未能完整讀取。可嘗試重新切換模式。</p>
+        (memoizedMTR)
+        : 
+        (<KMB routeDataArray={routeDataArray} stopDataArray={stopDataArray} />)
         }
 
-      <Footer />
     </div>
   );
 }
