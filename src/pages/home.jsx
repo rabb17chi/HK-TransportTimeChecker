@@ -46,7 +46,7 @@ export default function Home() {
       }
       setModeSelect(!modeSelect)
     } catch (err) {
-      console.log('err in mode-changing',err.message)
+      console.error('err in mode-changing',err.message)
     } finally {
       setIsLoading(false)
     }
