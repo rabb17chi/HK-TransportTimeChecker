@@ -12,8 +12,8 @@ const MTR = () => {
 
     const imageRef = useRef(
         <img
-            width={1000}
-            height={1000}
+            width={800}
+            height={800}
             src="/MTR_Map.svg"
             alt="MTR full map."
             onContextMenu={(e) => {
@@ -28,8 +28,8 @@ const MTR = () => {
     )
   return (
     <>
-        <div id="mtr-map" className='max-w-[95%] mx-auto overflow-x-auto '>
-            <div className='relative'>
+        <div id="mtr-map" className='w-full max-w-[800px] mx-auto'>
+            <div className='w-[800px] relative'>
 
                 {imageRef.current}
                 
@@ -43,6 +43,7 @@ const MTR = () => {
 
             </div>
         </div>
+
 
 
                 <div className='max-w-[90%] mx-auto my-2'>
