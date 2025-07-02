@@ -28,8 +28,8 @@ const MTR = () => {
     )
   return (
     <>
-        <div id="mtr-map" className='w-full max-w-[800px] mx-auto'>
-            <div className='w-[800px] relative'>
+        <div id="mtr-map" className='w-full max-w-[800px] mx-auto overflow-x-scroll lg:overflow-auto'>
+            <div className='w-[800px] relative '>
 
                 {imageRef.current}
                 
