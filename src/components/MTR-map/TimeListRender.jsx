@@ -13,16 +13,16 @@ const TimeListRender = ({Line, ListData, dataRemark}) => {
 
   return (
   <>
-    <span className='text-center text-2xl font-bold px-1.5'>
+    <p className={`${dataRemark == "Up" ? "md:text-start" : "md:text-end"} text-center text-2xl font-bold`}>
       往
       {stationSummary[ lineSummary[Line][dataRemark] ].name_tc}
       方向
-    </span>
+    </p>
 
     {
       ListData.map((item,index)=>{
         return (
-        <p key={index} className='flex items-center justify-center min-h-[35px] border-1'>
+        <p key={index} className={`${dataRemark == "Up" ? "md:text-start" : "md:text-end"} text-center min-h-[35px] border-t-1`}>
           <span>
             {checkDest(Line,item.dest)}
             第{numToChinese(index+1)}班車：{calculateTimeDiff(item.time)}

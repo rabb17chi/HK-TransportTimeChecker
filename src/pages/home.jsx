@@ -18,23 +18,6 @@ export default function Home() {
   const getKMBdata = async () => {
     setRouteDataArray(KMB_RouteRawData.data)
     setStopDataArray(KMB_StopRawData.data)
-//     try {
-//       if (routeDataArray.length === 0) {
-//       const routeResponse = await axios.get('https://data.etabus.gov.hk/v1/transport/kmb/route')
-//       if (routeResponse.status === 200) {
-//         setRouteDataArray(routeResponse.data.data)
-//       }
-//      }
-     
-//       if (stopDataArray.length === 0 ){
-//         const stopResponse = await axios.get('https://data.etabus.gov.hk/v1/transport/kmb/stop')
-//         if (stopResponse.status === 200) {
-//           setStopDataArray(stopResponse.data.data)
-//         }
-//       }
-// } catch (err) {
-//       console.log("Error with fetching KMB Data:",err)
-//   }
 }
 
 
@@ -56,15 +39,18 @@ export default function Home() {
     <div>
 
       <div className="p-2 flex justify-between items-center sticky top-0 z-10 bg-amber-200">
-        <button className="border-2 text-2xl p-2 bg-blue-100 cursor-pointer hover:bg-blue-700 hover:text-white hover:border-black"
+        <div className="flex-1">
+        <button className="border-2 text-2xl p-2 bg-blue-100 cursor-pointer"
         onClick={()=>ChangeModeFunction()}
         title="切換模式"
         disabled={isLoading}
         >
           {isLoading ? '切換中...' : "切換模式"}
         </button>
-        <h2 className="ml-3 text-xl">
-          Mode is {modeSelect ? 'MTR' : 'KMB'}.
+        
+        </div>
+        <h2 className="text-xl">
+          Mode: <span className="underline underline-offset-4 text-red-500">{modeSelect ? 'MTR' : 'KMB'}</span>
         </h2>
       </div>
 
