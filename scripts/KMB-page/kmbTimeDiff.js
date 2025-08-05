@@ -1,6 +1,7 @@
 export const KMBTimeDiff = (busTime,busIndex) => {
     if (busTime) {
         busTime = parseInt(busTime)
+        busIndex == 0 && console.log(busTime);
         let date = new Date()
         let currentMin = date.getMinutes()
         if (busTime === currentMin) {
@@ -9,7 +10,7 @@ export const KMBTimeDiff = (busTime,busIndex) => {
         if (busTime > currentMin) {         
             return `下班巴士： ${busTime - currentMin}分鐘`
         }
-        if (busIndex == 0 && busTime+60 - currentMin > 0) {
+        if (busIndex == 0 && busTime < currentMin) {
             return `巴士已離站。`
         }
         return `下班巴士： ${busTime+60-currentMin}分鐘`

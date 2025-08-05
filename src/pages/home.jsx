@@ -10,8 +10,6 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(false)
   const [modeSelect, setModeSelect] = useState(true)
 
-  const memoizedMTR = useMemo(()=> <MTR />)
-
   const [routeDataArray, setRouteDataArray] = useState([])
   const [stopDataArray, setStopDataArray] = useState([])
 
@@ -54,8 +52,7 @@ export default function Home() {
         </h2>
       </div>
 
-        {modeSelect ? 
-        (memoizedMTR)
+        {modeSelect ? <MTR />
         : 
         (<KMB routeDataArray={routeDataArray} stopDataArray={stopDataArray} />)
         }
