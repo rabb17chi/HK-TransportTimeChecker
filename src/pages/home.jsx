@@ -52,10 +52,8 @@ export default function Home() {
         </h2>
       </div>
 
-        {modeSelect ? <MTR />
-        : 
-        (<KMB routeDataArray={routeDataArray} stopDataArray={stopDataArray} />)
-        }
+        <div className={`${!modeSelect && "hidden"}`}><MTR /></div>
+        <div className={`${modeSelect && "hidden"}`}><KMB routeDataArray={routeDataArray} stopDataArray={stopDataArray} /></div>
 
     </div>
   );
